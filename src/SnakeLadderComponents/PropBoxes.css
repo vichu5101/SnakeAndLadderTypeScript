@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@500&family=Poppins&display=swap');
+
+* {
+    font-family: 'Poppins';
+}
+
+.perBox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 65px;
+    min-height: 65px;
+    max-height: auto;
+    align-items: center;
+    background-color: white;
+    margin: 0.2em;
+    box-shadow: 0.3px 1.2px 2px black;
+    border-radius: 0.5em;
+}
+
+.spanPlayer {
+    grid-row: 1/4;
+    margin-left: 0.7em;
+    display: flex;
+    flex-direction: column;
+    font-size: 6px;
+    background-color: rgb(242, 192, 192);
+    box-shadow: 0.3px 0.5px 1.5px black;
+    border-radius: 0.5em;
+    font-weight: bold;
+}
+
+.rightSide>h4 {
+    margin: 0;
+    margin-top: 3.5px;
+    font-size: 12px;
+    margin-left: 0em;
+}

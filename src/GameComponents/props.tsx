@@ -1,11 +1,10 @@
-import React from 'react'
 import './props.css'
-type IProps={
-value:number,
-data:any,
-icon:string
+type IProps = {
+    value: number,
+    data: string[] | any,
+    icon: string
 }
-const Props = (prop:IProps) => {
+const Props = (prop: IProps) => {
 
     let object = prop.data
     let Player1;

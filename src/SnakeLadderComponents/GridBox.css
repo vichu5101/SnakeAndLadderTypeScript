@@ -1,0 +1,177 @@
+.GridBox {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    border: 1px solid;
+    width: 707px;
+    height: 707px;
+    padding: 5px;
+    border: none;
+    text-align: center;
+    padding-right: 13px;
+    padding-bottom: 13px;
+    background-color: powderblue;
+    border-radius: 0.5em;
+    box-shadow: 0px -2px 5px rgb(0, 0, 0);
+}
+
+.window {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(242, 192, 192);
+}
+
+#Box18,
+#Box34,
+#Box48,
+#Box89,
+#Box82,
+#Box97,
+#Box62 {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(228, 121, 121);
+}
+
+#Box12,
+#Box39,
+#Box70,
+#Box79,
+#Box44 {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(136, 242, 136);
+}
+
+.hidden {
+    display: none;
+}
+
+header>h1 {
+    font-family: 'Noto Sans Mono';
+    background-color: powderblue;
+    border-radius: 0.5em;
+    padding: 0.3em;
+    box-shadow: 0px 4px 5px black;
+}
+
+header>img {
+    width: 300x;
+    height: 100px;
+}
+
+header {
+    text-align: center;
+}
+
+button {
+    padding: 0.7em;
+    margin: 1em;
+    background: white;
+    border-radius: 1em;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0px 4px 5px black;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    background-color: powderblue;
+    align-items: center;
+    box-shadow: 0px 4px 5px black;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 1em;
+    transition: all 0.5s;
+    width: 600px;
+    height: 500px;
+}
+
+button:hover {
+    transform: translateY(-3px);
+}
+
+.pointsTableContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playerHis {
+    display: grid;
+    grid-template-columns: minmax(300px, auto);
+    background-color: rgb(242, 192, 192);
+    box-shadow: 0px 4px 5px black;
+    border-radius: 1em;
+    padding-bottom: 1em;
+}
+
+.playerHis>h3 {
+    margin: 0.5em 3em;
+    background-color: white;
+    box-shadow: 0px 2px 5px black;
+    border-radius: 0.5em;
+}
+
+.update>h3 {
+    background-color: white;
+    padding: 0.3em 1em;
+    box-shadow: 0px 2px 5px black;
+    border-radius: 0.5em;
+    width: 140px;
+    margin-top: 10px;
+}
+
+.update>h1 {
+    background-color: white;
+    box-shadow: 0px 2px 5px black;
+    border-radius: 0.5em;
+    margin-top: 10px;
+    width: 50px;
+}
+
+.update {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.winnerTab>p {
+    font-size: 50px;
+}
+
+.winnerTab>h1 {
+    padding: 0;
+}
+
+.winnerTab>h4 {
+    padding: 0;
+}
+
+.winnerAnnounce {
+    display: block;
+    width: 500px;
+    height: 350px;
+    background-color: powderblue;
+    font-size: 45px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0px 4px 5px black;
+    border-radius: 1em;
+}
+
+.winnerAnnounce>h1 {
+    margin: 0;
+}
+
+.winnerAnnounce>p {
+    margin: 0;
+    margin-bottom: 30px;
+}

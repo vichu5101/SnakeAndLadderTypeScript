@@ -2,15 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import SnakeAndLadderGame from './GameComponents/SnakeAndLadderGame';
-
+import Test from './SnakeLadderComponents/userInput';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <SnakeAndLadderGame/>
+    <Test/>
   </React.StrictMode>
 );
 
