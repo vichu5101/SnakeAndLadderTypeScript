@@ -9,10 +9,20 @@ interface IPlayerArray {
     PlayerName: string,
     Position: number | string,
 }
+interface ICounter {
+    NameOfPlayer: string;
+    PlayerMoves: number,
+    PlayerPosition: number,
+    Dice: number
+}
+
 let playerNames: string[] = []
 let count = 1
 let playerNamesObject: any = {}
 let playerArr: IPlayerArray[] = []
+let playerHistory: ICounter[] = []
+let playerMoves: any = {}
+
 export default function Testing() {
     const [playerName, setPlayerName] = useState("")
     const [inputClass, setInputClass] = useState('nameInput')
@@ -47,6 +57,12 @@ export default function Testing() {
         }
     }
     function startingGame() {
+        for (let i of playerNames) {
+            playerHistory.push({ NameOfPlayer: i, PlayerMoves: 1, PlayerPosition: 1, Dice: 1 })
+        }
+        for (let i = 1; i <= howManyPlayer; i++) {
+            playerMoves[`Player${i}`] = 1
+        }
         setGameBool(true)
         setSubmitBtn('hidden')
     }
@@ -75,4 +91,4 @@ export default function Testing() {
 
     )
 }
-export { playerNamesObject, playerNames, playerArr }
+export { playerNamesObject, playerNames, playerArr, playerHistory, playerMoves }

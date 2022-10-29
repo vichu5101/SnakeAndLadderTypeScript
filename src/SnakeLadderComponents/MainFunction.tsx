@@ -3,14 +3,18 @@ import Props from './Props'
 import './GridBox.css'
 import Image from './snakeandladder.png'
 import { howManyPlayer, playerContainer, indexOfPlayer } from './userInput'
-import { playerArr, playerNames } from './userInputNames'
+import { playerArr, playerNames, playerMoves, playerHistory } from './userInputNames'
 import PlayerPosition from './position'
 import { useState } from 'react'
+import csvDataFile from './playerHistoryCsvFile'
+// import { playerHistory } from './playerHistoryCsvFile'
+
 let userInput = 6;
 let count = 1
 let playerCount = 0
 let bonusTurn: string;
 let powerUp: string;
+
 export default function SnakeAndLadderGame() {
     const [pointsTable, setPointsTable] = useState('container')
     const [playerTurn, setPlayerTurn] = useState<string>(playerNames[playerCount])
@@ -18,6 +22,8 @@ export default function SnakeAndLadderGame() {
     const [winnerTab, setWinnerTab] = useState('hidden')
     const [randomNum, setRandomNumber] = useState(0)
     function dice() {
+        playerMoves[`Player${count}`]+=1
+        console.log(playerHistory)
         let randomNumber = Math.floor(Math.random() * 6) + 1
         if (player[`Player${count}`] + randomNumber === 100) {
             setPointsTable('hidden')
@@ -34,10 +40,12 @@ export default function SnakeAndLadderGame() {
                     playerArr.forEach(player => {
                         if (player.PlayerName === playerNames[count - 1]) {
                             player.Position = element.id
+                            playerHistory.push({NameOfPlayer:player.PlayerName, PlayerMoves:playerMoves[`Player${count}`], PlayerPosition:element.id, Dice:randomNumber})
                         }
                     });
                 }
             });
+            csvDataFile(playerHistory)
         }
         if (player[`Player${count}`] + randomNumber <= 100) {
 
@@ -64,6 +72,7 @@ export default function SnakeAndLadderGame() {
                                 playerArr.forEach(player => {
                                     if (player.PlayerName === playerNames[count - 1]) {
                                         player.Position = elementValue.id + powerUp
+                                        playerHistory.push({NameOfPlayer:player.PlayerName, PlayerMoves:playerMoves[`Player${count}`], PlayerPosition:elementValue.id, Dice:randomNumber})
                                     }
                                 });
                             }
@@ -76,6 +85,7 @@ export default function SnakeAndLadderGame() {
                         playerArr.forEach(player => {
                             if (player.PlayerName === playerNames[count - 1]) {
                                 player.Position = element.id
+                                playerHistory.push({NameOfPlayer:player.PlayerName, PlayerMoves:playerMoves[`Player${count}`], PlayerPosition:element.id, Dice:randomNumber})
                             }
                         });
                     }
