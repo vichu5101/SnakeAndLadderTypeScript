@@ -78,13 +78,13 @@ export default function Testing() {
                 <button onClick={addPlayer}>Add Player</button>
             </div>
             <div className={submitBtn}>
+                <h1>Player Names</h1>
                 <div>
-                    <h1>Player Names</h1>
-                    <div>
+                    <div className='PNames'>
                         {playerNames.map(n => <PlayerAdder Player={n} key={n} />)}
                     </div>
                 </div>
-                <button onClick={startingGame}><h2>Start Game</h2></button>
+                <button onClick={startingGame}><p>Start Game</p></button>
             </div>
             {gameBool ? <SnakeAndLadderGame /> : null}
         </div>

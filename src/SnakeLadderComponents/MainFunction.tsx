@@ -7,8 +7,6 @@ import { playerArr, playerNames, playerMoves, playerHistory } from './userInputN
 import PlayerPosition from './position'
 import { useState } from 'react'
 import csvDataFile from './playerHistoryCsvFile'
-// import { playerHistory } from './playerHistoryCsvFile'
-
 let userInput = 6;
 let count = 1
 let playerCount = 0
@@ -22,33 +20,11 @@ export default function SnakeAndLadderGame() {
     const [winnerTab, setWinnerTab] = useState('hidden')
     const [randomNum, setRandomNumber] = useState(0)
     function dice() {
-        playerMoves[`Player${count}`]+=1
+        playerMoves[`Player${count}`] += 1
         console.log(playerHistory)
         let randomNumber = Math.floor(Math.random() * 6) + 1
-        if (player[`Player${count}`] + randomNumber === 100) {
-            setPointsTable('hidden')
-            setWinnerTab('winnerAnnounce')
-            gameData.forEach(element => {
-                if (element.id === indexOfPlayer[`Player${count}`]) {
-                    element.players[`Player${count}`] = ''
-                }
-            });
-            gameData.forEach(element => {
-                if (player[`Player${count}`] + randomNumber === element.id) {
-                    element.players[`Player${count}`] = 'in'
-                    indexOfPlayer[`Player${count}`] = element.id
-                    playerArr.forEach(player => {
-                        if (player.PlayerName === playerNames[count - 1]) {
-                            player.Position = element.id
-                            playerHistory.push({NameOfPlayer:player.PlayerName, PlayerMoves:playerMoves[`Player${count}`], PlayerPosition:element.id, Dice:randomNumber})
-                        }
-                    });
-                }
-            });
-            csvDataFile(playerHistory)
-        }
+        setRandomNumber(randomNumber)
         if (player[`Player${count}`] + randomNumber <= 100) {
-
             gameData.forEach(element => {
                 if (element.id === indexOfPlayer[`Player${count}`]) {
                     element.players[`Player${count}`] = ''
@@ -72,7 +48,7 @@ export default function SnakeAndLadderGame() {
                                 playerArr.forEach(player => {
                                     if (player.PlayerName === playerNames[count - 1]) {
                                         player.Position = elementValue.id + powerUp
-                                        playerHistory.push({NameOfPlayer:player.PlayerName, PlayerMoves:playerMoves[`Player${count}`], PlayerPosition:elementValue.id, Dice:randomNumber})
+                                        playerHistory.push({ NameOfPlayer: player.PlayerName, PlayerMoves: playerMoves[`Player${count}`], PlayerPosition: elementValue.id, Dice: randomNumber })
                                     }
                                 });
                             }
@@ -85,19 +61,22 @@ export default function SnakeAndLadderGame() {
                         playerArr.forEach(player => {
                             if (player.PlayerName === playerNames[count - 1]) {
                                 player.Position = element.id
-                                playerHistory.push({NameOfPlayer:player.PlayerName, PlayerMoves:playerMoves[`Player${count}`], PlayerPosition:element.id, Dice:randomNumber})
+                                playerHistory.push({ NameOfPlayer: player.PlayerName, PlayerMoves: playerMoves[`Player${count}`], PlayerPosition: element.id, Dice: randomNumber })
                             }
                         });
                     }
                 }
             });
+            if (player[`Player${count}`] + randomNumber === 100) {
+                setPointsTable('hidden')
+                setWinnerTab('winnerAnnounce')
+                csvDataFile(playerHistory)
+            }
         }
         else {
             player[`Player${count}`] = player[`Player${count}`]
         }
         if (randomNumber === 1 || randomNumber === 5 || randomNumber === 6) {
-            // count = count
-            // playerCount = playerCount
             bonusTurn = `${playerTurn} got Bonus Turn`
         }
         else {
@@ -115,7 +94,6 @@ export default function SnakeAndLadderGame() {
         if (count === howManyPlayer + 1) {
             count = 1
         }
-        setRandomNumber(randomNumber)
     }
 
     return (
